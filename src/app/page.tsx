@@ -1,15 +1,20 @@
 import Image from "next/image";
-import { Welcome, Footer, Services, Transactions } from "./components";
+import {
+  Initial,
+  Footer,
+  ServicesComponent,
+  TransactionComponent,
+} from "./components";
 
 export default function Home() {
   return (
     <>
       <div>
-        <div className="gradient-bg-welcome">
-          <Welcome />
+        <div className="gradient-bg-initial">
+          <Initial />
         </div>
-        <Services />
-        <Transactions />
+        <ServicesComponent />
+        <TransactionComponent />
         <Footer />
       </div>
     </>

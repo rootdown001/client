@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function Welcome() {
+export default function Initial() {
   return <h1>Welcome</h1>;
 }

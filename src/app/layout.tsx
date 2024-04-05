@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className=" min-h-screen">
-          <div className="gradient-bg-welcome">
+          <div className="gradient-bg-initial">
             <Navbar />
           </div>
           {children}
