@@ -41,13 +41,14 @@ export default function Initial() {
 
   return (
     <div className=" flex w-full justify-center items-center">
-      <div className=" flex md:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
-        <div className=" flex flex-1 justify-start flex-col md:mr-10">
+      <div className=" flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
+        <div className=" flex flex-1 justify-start flex-col mf:mr-10">
           <h1 className="text-3xl sm:text-5xl text-white text-unique-gradient py-1">
-            Send Ethereum <br /> around the globe
+            Send Ethereum
+            <br /> to designated payee
           </h1>
           <p className=" text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
-            Send ETH from your MetaMask wallet with Rootdown Crypto
+            Send ETH from your MetaMask wallet directy receiver&apos;s address
           </p>
           <button
             type="button"
@@ -59,20 +60,16 @@ export default function Initial() {
             </p>
           </button>
           <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
-            <div className={`rounded-tl-2xl ${sixSectionStyles}`}>
-              Reliability
-            </div>
-            <div className={`${sixSectionStyles}`}>Security</div>
+            <div className={`rounded-tl-2xl ${sixSectionStyles}`}>Safe</div>
+            <div className={`${sixSectionStyles}`}>Blockchain</div>
             <div className={`sm:rounded-tr-2xl ${sixSectionStyles}`}>
-              Ethereum
+              Reliable
             </div>
             <div className={`sm:rounded-bl-2xl ${sixSectionStyles}`}>
-              Web 3.0
+              Transparent
             </div>
             <div className={` ${sixSectionStyles}`}>Low Fees</div>
-            <div className={`rounded-br-2xl ${sixSectionStyles}`}>
-              Blockchain
-            </div>
+            <div className={`rounded-br-2xl ${sixSectionStyles}`}>Fast</div>
           </div>
         </div>
         {/* second col */}
