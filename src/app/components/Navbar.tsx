@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import { HiMenuAlt4 } from "react-icons/hi";
+import { HiMenu } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 import Image from "next/image";
-import logo from "/public/rootdowncrypto.png";
+import logo from "/public/rootdowncrypto1.png";
 
 type NavItemProps = {
   title: string;
@@ -15,19 +15,24 @@ function NavItem({ title, classProps }: NavItemProps) {
 }
 
 export default function Navbar() {
+  const connectWallet = () => {};
+
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
-    <nav className=" w-full flex md:justify-center justify-between items-center p-4">
+    <nav className=" w-full flex md:justify-center justify-between items-center p-4 bg-white">
       <div className=" md:flex-[0.5] flex-initial justify-center items-center">
         <Image src={logo} alt="logo" className=" cursor-pointer w-32 " />
       </div>
-      <ul className=" text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
+      <ul className=" text-black md:flex hidden list-none flex-row justify-between items-center flex-initial">
         {["Market", "Exchange", "Tutorials", "Wallets"].map((item, index) => (
           <NavItem key={item + index} title={item} />
         ))}
-        <li className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
-          Login
+        <li className="bg-[#1f545d] py-1 px-7 mx-4 rounded-md cursor-pointer hover:bg-[#57CCD7] text-white">
+          <button type="button" onClick={connectWallet}>
+            {/* TODO: button weight */}
+            <p className=" text-white max-w-[120px]">Connect Wallet</p>
+          </button>
         </li>
       </ul>
       {/* mobile view */}
@@ -35,13 +40,13 @@ export default function Navbar() {
         {toggleMenu ? (
           <AiOutlineClose
             fontSize={28}
-            className="text-white md:hidden cursor-pointer"
+            className="text-[#1f545d] md:hidden cursor-pointer"
             onClick={() => setToggleMenu(false)}
           />
         ) : (
-          <HiMenuAlt4
+          <HiMenu
             fontSize={28}
-            className="text-white md:hidden cursor-pointer"
+            className="text-[#1f545d] md:hidden cursor-pointer"
             onClick={() => setToggleMenu(true)}
           />
         )}

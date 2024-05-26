@@ -13,7 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.gradient-bg-initial {
+/* .gradient-bg-initial {
   background-color: #0e1311;
   background-image: radial-gradient(
       at 0% 0%,
@@ -22,7 +22,7 @@ body {
     ),
     radial-gradient(at 50% 0%, rgb(23, 23, 116) 0, transparent 50%),
     radial-gradient(at 100% 0%, rgb(90, 51, 126) 0, transparent 50%);
-}
+} */
 
 /* .gradient-bg-initial {
   background-color: #0e1311;
@@ -33,8 +33,23 @@ body {
     ),
     radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
     radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
- 
 } */
+
+.gradient-bg-initial {
+  background-image: linear-gradient(
+    225deg,
+    hsl(195deg 46% 10%) 0%,
+    hsl(194deg 46% 12%) 11%,
+    hsl(193deg 47% 14%) 22%,
+    hsl(193deg 47% 16%) 33%,
+    hsl(192deg 48% 17%) 44%,
+    hsl(191deg 48% 19%) 56%,
+    hsl(190deg 48% 21%) 67%,
+    hsl(190deg 49% 23%) 78%,
+    hsl(189deg 49% 25%) 89%,
+    hsl(188deg 49% 26%) 100%
+  );
+}
 
 .gradient-bg-services_component {
   background-color: #0f0e13;

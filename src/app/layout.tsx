@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "./components";
+import { TransactionProvider } from "./context/TransactionContext";
 
 export const metadata: Metadata = {
   title: "Send ETH App",
@@ -15,12 +16,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className=" min-h-screen">
-          <div className="gradient-bg-initial">
-            <Navbar />
+        <TransactionProvider>
+          <div className=" min-h-screen">
+            <div className="gradient-bg-initial">
+              <Navbar />
+            </div>
+            {children}
           </div>
-          {children}
-        </div>
+        </TransactionProvider>
       </body>
     </html>
   );
