@@ -1,9 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { HiMenu } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 import Image from "next/image";
 import logo from "/public/rootdowncrypto1.png";
+import { TransactionContext } from "../context/TransactionContext";
 
 type NavItemProps = {
   title: string;
@@ -15,7 +16,7 @@ function NavItem({ title, classProps }: NavItemProps) {
 }
 
 export default function Navbar() {
-  const connectWallet = () => {};
+  const { connectWallet, currentAccount } = useContext(TransactionContext);
 
   const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -28,12 +29,14 @@ export default function Navbar() {
         {["Market", "Exchange", "Tutorials", "Wallets"].map((item, index) => (
           <NavItem key={item + index} title={item} />
         ))}
-        <li className="bg-[#1f545d] py-1 px-7 mx-4 rounded-md cursor-pointer hover:bg-[#57CCD7] text-white">
-          <button type="button" onClick={connectWallet}>
-            {/* TODO: button weight */}
-            <p className=" text-white max-w-[120px]">Connect Wallet</p>
-          </button>
-        </li>
+        {!currentAccount && (
+          <li className="bg-[#1f545d] py-1 px-7 mx-4 rounded-md cursor-pointer hover:bg-[#57CCD7] text-white">
+            <button type="button" onClick={connectWallet}>
+              {/* TODO: button weight */}
+              <p className=" text-white max-w-[120px]">Connect Wallet</p>
+            </button>
+          </li>
+        )}
       </ul>
       {/* mobile view */}
       <div className="flex relative">
@@ -66,6 +69,14 @@ export default function Navbar() {
                   classProps="my-2 text-lg"
                 />
               )
+            )}
+            {!currentAccount && (
+              <li className="bg-[#1f545d] py-1 px-7 mx-4 rounded-md cursor-pointer hover:bg-[#57CCD7] text-white">
+                <button type="button" onClick={connectWallet}>
+                  {/* TODO: button weight */}
+                  <p className=" text-white max-w-[120px]">Connect Wallet</p>
+                </button>
+              </li>
             )}
           </ul>
         )}
