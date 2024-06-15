@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { HiMenu } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 import Image from "next/image";
-import logo from "/public/rootdowncrypto1.png";
+import logo from "/public/rootdowncrypto5.png";
 import { TransactionContext } from "../context/TransactionContext";
 
 type NavItemProps = {

@@ -9,13 +9,14 @@ import {
 export default function Home() {
   return (
     <>
-      <div>
-        <div className="gradient-bg-initial">
+      <div className="gradient-bg-initial">
+        <div>
           <Initial />
         </div>
-        <ServicesComponent />
         <TransactionComponent />
-        <Footer />
+        <div>
+          <Footer />
+        </div>
       </div>
     </>
   );

@@ -29,7 +29,7 @@ const Input = ({
     step="0.0001"
     value={value}
     onChange={(e) => handleChange(e, name)}
-    className=" placeholder:text-white/[.74] my-2 w-full rounded-md p-2 bg-[#184048] text-white border-none text-sm "
+    className=" placeholder:text-white/[.69] my-2 w-full rounded-md p-3 bg-[#184048] text-white border-none text-sm "
   ></input>
 );
 
@@ -97,68 +97,75 @@ export default function Initial() {
         {/* second col */}
         <div className=" flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
           {/* transaction form */}
-          <div className=" p-5 pt-2 sm:w-96 w-full flex flex-col justify-start items-center bg-[#1F545D] rounded-lg">
+          <div className=" p-5 pt-2 sm:w-96 flex flex-col justify-start items-center bg-[#1F545D] rounded-xl min-h-[600px] w-full">
             <div className="flex w-full">
               <div className="flex w-full justify-start items-center py-6 px-2">
-                <div className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center">
-                  <SiEthereum fontSize={21} color="fff" />
+                <div className="w-10 h-10 rounded-full border-2 border-[#E6F4F1] flex justify-center items-center">
+                  <SiEthereum fontSize={21} color="#E6F4F1" />
                 </div>
               </div>
               <div className="flex w-full justify-end py-6">
                 <div>
-                  <p className="flex text-white font-semibold justify-end text-lg px-1">
+                  <p className="flex text-[#E6F4F1] font-semibold justify-end text-lg px-1">
                     Ethereum
                   </p>
-                  <p className="flex text-white font-light justify-end text-md mt-1">
+                  <p className="flex text-[#E6F4F1] font-light justify-end text-md mt-1">
                     {shortenAddress(currentAccount)}
                   </p>
                 </div>
               </div>
             </div>
 
-            <form>
-              {/* inputs */}
+            <div className="p-2 flex flex-col w-full">
+              <form>
+                {/* inputs */}
+                <div className="text-white">Address To</div>
+                <Input
+                  placeholder="0x..."
+                  name="addressTo"
+                  type="text"
+                  handleChange={handleChange}
+                />
+                <div className="text-white mt-1">Amount ETH</div>
+                <Input
+                  placeholder="0.0"
+                  name="amount"
+                  type="number"
+                  handleChange={handleChange}
+                />
+                <div className="text-white mt-1">Keyword</div>
+                <Input
+                  placeholder="keyword"
+                  name="Enter keyword"
+                  type="text"
+                  handleChange={handleChange}
+                />
+                <div className="text-white mt-1">Message</div>
 
-              <Input
-                placeholder="Address To"
-                name="addressTo"
-                type="text"
-                handleChange={handleChange}
-              />
-              <Input
-                placeholder="Amount (ETH)"
-                name="amount"
-                type="number"
-                handleChange={handleChange}
-              />
-              <Input
-                placeholder="Keyword (Gif)"
-                name="keyword"
-                type="text"
-                handleChange={handleChange}
-              />
-              <Input
-                placeholder="Enter Message"
-                name="message"
-                type="text"
-                handleChange={handleChange}
-              />
-              {/* line */}
-              <div className=" h-[1px] w-full bg-gray-400 my-2" />
-              {/* show loader if loading */}
-              {false ? (
-                <Loader />
-              ) : (
-                <button
-                  type="button"
-                  onClick={handleSubmit}
-                  // className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer"
-                  className=" flex flex-row justify-center items-center my-7 bg-[#EE8267] rounded-md cursor-pointer hover:bg-[#F19B85] max-w-[200px] mx-auto px-3 py-1 text-white"
-                >
-                  Send Now
-                </button>
-              )}
-            </form>
+                <Input
+                  placeholder="Enter message"
+                  name="message"
+                  type="text"
+                  handleChange={handleChange}
+                />
+                {/* line */}
+                <div className=" h-[1px] w-full bg-gray-400 my-2" />
+                {/* show loader if loading */}
+                {false ? (
+                  <Loader />
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handleSubmit}
+                    // className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer"
+                    //
+                    className=" flex flex-row justify-center items-center mt-10 bg-[#EE8267] rounded-full cursor-pointer hover:bg-[#F19B85] max-w-[300px] mx-auto px-[80px] py-3 text-white text-xl font-semibold"
+                  >
+                    Send Now
+                  </button>
+                )}
+              </form>
+            </div>
           </div>
           {/* end 2nd column */}
         </div>
