@@ -29,6 +29,7 @@ type ContextProps = {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>, name: string) => void;
   sendTransaction: () => Promise<void>;
   transactions: TransactionsProps[];
+  isLoading: boolean;
 };
 
 import React, { createContext, useEffect, useState } from "react";

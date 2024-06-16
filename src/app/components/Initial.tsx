@@ -43,7 +43,7 @@ export default function Initial() {
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const { addressTo, amount, keyword, message } = formData;
-
+    console.log(addressTo, amount, keyword, message);
     e.preventDefault();
     if (!addressTo || !amount || !keyword || !message) return;
 
@@ -199,7 +199,7 @@ export default function Initial() {
                 <div className="text-white mt-1">Keyword</div>
                 <Input
                   placeholder="keyword"
-                  name="Enter keyword"
+                  name="keyword"
                   type="text"
                   handleChange={handleChange}
                 />
