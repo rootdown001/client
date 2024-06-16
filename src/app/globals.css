@@ -1,9 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -62,7 +67,7 @@ body {
 }
 
 .gradient-bg-transactions {
-  background-color: hsl(192, 47%, 96%);
+  background-color: hsl(169, 65%, 97%);
 }
 
 /* .gradient-bg-transactions {
@@ -129,7 +134,3 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

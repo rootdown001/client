@@ -39,6 +39,11 @@ export default function Footer() {
           rootdowncrypto@gmail.com
         </p>
       </div>
+      <div className="sm:w-[90%] w-full h-[0.25px] bg-gray-400 mt-5" />
+      <div className="sm:w-[90%] w-full flex justify-between items-center mt-3">
+        <p className="text-white text-sm text-center">Rootdown Crypto 2024</p>
+        <p className="text-white text-sm text-center">All rights reserved</p>
+      </div>
     </div>
   );
 }

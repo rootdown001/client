@@ -7,6 +7,7 @@ import { BsInfoCircle } from "react-icons/bs";
 import { TransactionContext } from "../context/TransactionContext";
 import { Loader } from "./";
 import { shortenAddress } from "../utils/shortenAddress";
+import Link from "next/link";
 
 type InputProps = {
   placeholder: string;
@@ -37,7 +38,7 @@ const sixSectionStyles =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
 export default function Initial() {
-  const { currentAccount, formData, handleChange, sendTransaction } =
+  const { currentAccount, formData, handleChange, sendTransaction, isLoading } =
     useContext(TransactionContext);
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -57,11 +58,66 @@ export default function Initial() {
           <h1 className="text-3xl sm:text-5xl  text-white px-1 py-1 text-center">
             Send Ethereum Instantly, Securely, and Without Hassle
           </h1>
-          <p className=" mt-5 font-normal text-white/[.8] text-center md:w-9/12 w-11/12 text-base">
+          <p className=" mt-5 font-normal text-white/[.9] text-center md:w-9/12 w-11/12 text-base">
             Experience the future of digital currency transactions with our
             state-of-the-art Ethereum dapp. Send ETH to anyone, anywhere,
             anytime.
           </p>
+          <div className="border-white rounded-lg border-[1px] w-full mt-14 flex flex-col justify-center items-center px-1 py-3">
+            <p className="text-white/[.9] py-2 font-semibold text-sm">
+              Deployment note
+            </p>
+            <p className="text-white/[.8] text-center text-sm">
+              I currently have this Web 3 app hooked up to the Ethereum
+              blockchain Testnet named Sepolia. This means it is{" "}
+              <span className=" font-extrabold text-white">free to use</span>.
+            </p>
+            <p className="text-white/[.8] text-center py-2 text-sm">
+              In order to play with it, just add Sepolia Ethereum to your
+              Metamask wallet with any of these free Sepolia faucets.
+            </p>
+            <ul className="text-center py-2 text-sm">
+              <li>
+                {" "}
+                <Link
+                  href="https://www.alchemy.com/faucets/ethereum-sepolia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {" "}
+                  <p className="rounded-full px-2 text-[#EE8267] hover:text-[#F19B85] m-1">
+                    Alchemy Ethereum Sepolia Faucet
+                  </p>
+                </Link>
+              </li>
+              <li>
+                {" "}
+                <Link
+                  href="https://www.infura.io/faucet/sepolia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {" "}
+                  <p className="rounded-full px-2 text-[#EE8267] hover:text-[#F19B85] m-1">
+                    Infura Ethereum Sepolia Faucet
+                  </p>
+                </Link>
+              </li>
+              <li>
+                {" "}
+                <Link
+                  href="https://cloud.google.com/application/web3/faucet/ethereum/sepolia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {" "}
+                  <p className="rounded-full px-2 text-[#EE8267] hover:text-[#F19B85] m-1">
+                    Google Cloud Web 3 Ethereum Sepolia Faucet
+                  </p>
+                </Link>
+              </li>
+            </ul>
+          </div>
           {/* <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
             <div className={`rounded-tl-2xl ${sixSectionStyles}`}>Safe</div>
             <div className={`${sixSectionStyles}`}>Blockchain</div>
@@ -109,9 +165,16 @@ export default function Initial() {
                   <p className="flex text-[#E6F4F1] font-semibold justify-end text-lg px-1">
                     Ethereum
                   </p>
-                  <p className="flex text-[#E6F4F1] font-light justify-end text-md mt-1">
-                    {shortenAddress(currentAccount)}
-                  </p>
+                  <Link
+                    href={`https://sepolia.etherscan.io/address/${currentAccount}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {" "}
+                    <p className="flex text-[#EE8267] font-normal justify-end text-md mt-1">
+                      {shortenAddress(currentAccount)}
+                    </p>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -151,7 +214,7 @@ export default function Initial() {
                 {/* line */}
                 <div className=" h-[1px] w-full bg-gray-400 my-2" />
                 {/* show loader if loading */}
-                {false ? (
+                {isLoading ? (
                   <Loader />
                 ) : (
                   <button
