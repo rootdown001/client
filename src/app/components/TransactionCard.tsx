@@ -1,5 +1,5 @@
 import React from "react";
-import { shortenAddressShort } from "../utils/shortenAddress";
+import { shortenAddress } from "../utils/shortenAddress";
 import Link from "next/link";
 
 type TransactionCardProps = {
@@ -45,16 +45,16 @@ TransactionCardProps) => {
         index + 1
       }`}</div> */}
       <div className="flex flex-col items-center w-full mt-3">
-        <div className="w-full mb-6 px-4 pt-2">
+        <div className="w-full mb-6 px-1 pt-2">
           <Link
             href={`https://sepolia.etherscan.io/address/${addressFrom}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="flex justify-between items-center rounded-md bg-white p-1 mt-2">
-              <p className="text-black text-base  ">From: </p>
-              <p className="rounded-full px-2 text-[#EE8267] hover:text-[#F19B85] m-1">
-                {shortenAddressShort(addressFrom)}
+            <div className="flex justify-between items-center rounded-md bg-white mt-2">
+              <p className="text-black text-sm  ">From: </p>
+              <p className="rounded-full text-sm text-[#EE8267] hover:text-[#F19B85]">
+                {shortenAddress(addressFrom)}
               </p>
             </div>
           </Link>
@@ -63,37 +63,37 @@ TransactionCardProps) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="flex justify-between items-center rounded-md bg-white p-1 mt-2">
-              <p className="text-black text-base  ">To: </p>
-              <p className="rounded-full  px-2 text-[#EE8267] hover:text-[#F19B85] m-1">
-                {shortenAddressShort(addressTo)}
+            <div className="flex justify-between items-center rounded-md bg-white mt-2">
+              <p className="text-black text-sm  ">To: </p>
+              <p className="rounded-full text-sm text-[#EE8267] hover:text-[#F19B85]">
+                {shortenAddress(addressTo)}
               </p>
             </div>
           </Link>
 
-          <div className="flex justify-between items-center rounded-md bg-white p-2 mt-2 ">
-            <p className="text-black text-base">Amount: </p>
-            <p className="text-black text-base">{amount} ETH</p>
+          <div className="flex justify-between items-center rounded-md bg-white mt-2 ">
+            <p className="text-black text-sm">Amount: </p>
+            <p className="text-black text-sm pl-4">{amount} ETH</p>
           </div>
 
           {keyword && (
-            <div className="flex justify-between items-center rounded-md bg-white p-2 mt-2 ">
-              <p className="text-black text-base">Keyword: </p>
-              <p className="text-black text-base">{keyword} ETH</p>
+            <div className="flex justify-between items-center rounded-md bg-white mt-2 ">
+              <p className="text-black text-sm">Keyword: </p>
+              <p className="text-black text-sm pl-4">{keyword}</p>
             </div>
           )}
 
           {message && (
-            <div className="flex justify-between items-center rounded-md bg-white p-2 mt-2 ">
-              <p className="text-black text-base">Message: </p>
-              <p className="text-black text-base">{message} ETH</p>
+            <div className="flex justify-between items-center rounded-md bg-white mt-2 ">
+              <p className="text-black text-sm">Message: </p>
+              <p className="text-black text-sm pl-4">{message}</p>
             </div>
           )}
 
           <div className="flex justify-center">
             {" "}
             <div className=" border-slate-500 border-solid border-[1px] p-2 px-4 w-max rounded-2xl mt-5 shadow-lg bg-white">
-              <p className=" text-slate-500 font-bold">{timestamp}</p>
+              <p className=" text-slate-500 font-bold text-sm">{timestamp}</p>
             </div>
           </div>
         </div>
