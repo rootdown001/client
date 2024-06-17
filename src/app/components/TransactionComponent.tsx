@@ -24,7 +24,7 @@ export default function TransactionComponent() {
           </h3>
         )}
         <div className="flex flex-wrap justify-center items-center mt-10">
-          {transactions.map((transaction, index) => (
+          {transactions.reverse().map((transaction, index) => (
             <TransactionCard key={index} {...transaction} index={index} />
           ))}
         </div>
