@@ -17,7 +17,7 @@ type NavItemProps = {
   classProps?: string;
 };
 
-function NavItem({
+export function NavItem({
   title,
   url,
   target,
@@ -41,37 +41,37 @@ function NavItem({
   );
 }
 
+export const links = [
+  {
+    id: "b155cb45-5d89-4f5f-8d87-4e8324e073bc",
+    name: "Market",
+    url: "https://www.coingecko.com/",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    internal: false,
+  },
+  {
+    id: "a81d600b-fede-454c-9cb1-d682f073224e",
+    name: "Blockchain",
+    url: "https://sepolia.etherscan.io/",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    internal: false,
+  },
+  {
+    id: "391f0ab1-5304-477a-82b2-036276f996f8",
+    name: "Transactions",
+    url: "transactions",
+    target: "",
+    rel: "",
+    internal: true,
+  },
+];
+
 export default function Navbar() {
   const { connectWallet, currentAccount } = useContext(TransactionContext);
 
   const [toggleMenu, setToggleMenu] = useState(false);
-
-  const links = [
-    {
-      id: "b155cb45-5d89-4f5f-8d87-4e8324e073bc",
-      name: "Market",
-      url: "https://www.coingecko.com/",
-      target: "_blank",
-      rel: "noopener noreferrer",
-      internal: false,
-    },
-    {
-      id: "a81d600b-fede-454c-9cb1-d682f073224e",
-      name: "Blockchain",
-      url: "https://sepolia.etherscan.io/",
-      target: "_blank",
-      rel: "noopener noreferrer",
-      internal: false,
-    },
-    {
-      id: "391f0ab1-5304-477a-82b2-036276f996f8",
-      name: "Transactions",
-      url: "transactions",
-      target: "",
-      rel: "",
-      internal: true,
-    },
-  ];
 
   return (
     <nav className=" w-full flex md:justify-center justify-between items-center p-4 bg-white">
@@ -90,7 +90,7 @@ export default function Navbar() {
           />
         ))}
         {!currentAccount && (
-          <li className="bg-[#EE8267] py-1 px-7 mx-4 rounded-md cursor-pointer hover:bg-[#57CCD7] text-white">
+          <li className="bg-[#EE8267] hover:bg-[#F19B85] py-1 px-7 mx-4 rounded-md cursor-pointer  text-white animate-bounce1">
             <button type="button" onClick={connectWallet}>
               {/* TODO: button weight */}
               <p className=" text-white max-w-[120px]">Connect Wallet</p>
@@ -133,7 +133,7 @@ export default function Navbar() {
               />
             ))}
             {!currentAccount && (
-              <li className="bg-[#1f545d] py-1 px-7 mx-4 rounded-md cursor-pointer hover:bg-[#57CCD7] text-white">
+              <li className="bg-[#EE8267] hover:bg-[#F19B85] py-1 px-7 mx-4 rounded-md cursor-pointer text-white animate-bounce1">
                 <button type="button" onClick={connectWallet}>
                   {/* TODO: button weight */}
                   <p className=" text-white max-w-[120px]">Connect Wallet</p>

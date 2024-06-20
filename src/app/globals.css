@@ -134,3 +134,27 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+@keyframes bounce {
+  0%,
+  10%,
+  25%,
+  40%,
+  50% {
+    transform: translateY(0);
+  }
+  22% {
+    transform: translateY(-16px);
+  }
+  35% {
+    transform: translateY(-10px);
+  }
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-bounce1 {
+  animation: bounce 5s ease infinite;
+}
