@@ -25,6 +25,7 @@ const Input = ({
   handleChange,
 }: InputProps) => (
   <input
+    id={name}
     placeholder={placeholder}
     type={type}
     step="0.0001"
