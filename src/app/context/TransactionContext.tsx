@@ -13,6 +13,15 @@ interface FormData {
   message: string;
 }
 
+type TransactionObjectProps = {
+  receiver: string;
+  sender: string;
+  timestamp: ethers.BigNumber;
+  keyword: string;
+  message: string;
+  amount: ethers.BigNumber;
+};
+
 type TransactionsProps = {
   addressTo: string;
   addressFrom: string;
@@ -110,7 +119,7 @@ export const TransactionProvider = ({ children }: any) => {
         await transactionContract.getAllTransactions();
 
       const structuredTransactions = availableTransactions.map(
-        (transaction) => ({
+        (transaction: TransactionObjectProps) => ({
           addressTo: transaction.receiver,
           addressFrom: transaction.sender,
           timestamp: new Date(
@@ -239,7 +248,7 @@ export const TransactionProvider = ({ children }: any) => {
     if (currentAccount.length) {
       checkIfTransactionsExist();
     }
-  }, []);
+  });
 
   return (
     <TransactionContext.Provider

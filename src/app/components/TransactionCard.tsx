@@ -8,7 +8,7 @@ type TransactionCardProps = {
   timestamp: string;
   message: string;
   keyword: string;
-  amount: string;
+  amount: number;
   // url: string;
   // index: number;
 };
