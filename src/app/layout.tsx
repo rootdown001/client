@@ -14,17 +14,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <TransactionProvider>
-      <html lang="en">
-        <body>
+    <html lang="en">
+      <body>
+        <TransactionProvider>
           <div className=" min-h-screen">
             <div className="gradient-bg-initial">
               <Navbar />
             </div>
             {children}
           </div>
-        </body>
-      </html>
-    </TransactionProvider>
+        </TransactionProvider>
+      </body>
+    </html>
   );
 }
