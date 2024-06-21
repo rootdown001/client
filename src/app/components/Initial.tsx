@@ -8,12 +8,13 @@ import { TransactionContext } from "../context/TransactionContext";
 import { Loader } from "./";
 import { shortenAddress } from "../utils/shortenAddress";
 import Link from "next/link";
+import { initialFormData } from "../context/TransactionContext";
 
 type InputProps = {
   placeholder: string;
   name: string;
   type: string;
-  value?: number;
+  value: string | number;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>, name: string) => void;
 };
 
@@ -39,16 +40,28 @@ const sixSectionStyles =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
 export default function Initial() {
-  const { currentAccount, formData, handleChange, sendTransaction, isLoading } =
-    useContext(TransactionContext);
+  const {
+    currentAccount,
+    formData,
+    setFormData,
+    handleChange,
+    sendTransaction,
+    isLoading,
+  } = useContext(TransactionContext);
 
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleSubmit = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     const { addressTo, amount, keyword, message } = formData;
     console.log(addressTo, amount, keyword, message);
     e.preventDefault();
     if (!addressTo || !amount || !keyword || !message) return;
+    // console.log("fd before send ", formData);
+    await sendTransaction();
 
-    sendTransaction();
+    // console.log("fd after send ", formData);
+    setFormData(initialFormData);
+    // console.log("fd after update form ", formData);
   };
 
   return (
@@ -188,6 +201,7 @@ export default function Initial() {
                   placeholder="0x..."
                   name="addressTo"
                   type="text"
+                  value={formData.addressTo}
                   handleChange={handleChange}
                 />
                 <div className="text-white mt-1">Amount ETH</div>
@@ -195,6 +209,7 @@ export default function Initial() {
                   placeholder="0.0"
                   name="amount"
                   type="number"
+                  value={formData.amount}
                   handleChange={handleChange}
                 />
                 <div className="text-white mt-1">Keyword</div>
@@ -202,6 +217,7 @@ export default function Initial() {
                   placeholder="keyword"
                   name="keyword"
                   type="text"
+                  value={formData.keyword}
                   handleChange={handleChange}
                 />
                 <div className="text-white mt-1">Message</div>
@@ -210,6 +226,7 @@ export default function Initial() {
                   placeholder="Enter message"
                   name="message"
                   type="text"
+                  value={formData.message}
                   handleChange={handleChange}
                 />
                 {/* line */}

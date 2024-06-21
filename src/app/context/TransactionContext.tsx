@@ -6,7 +6,7 @@ declare global {
   }
 }
 
-interface FormData {
+interface FormDataProps {
   addressTo: string;
   amount: string;
   keyword: string;
@@ -34,7 +34,8 @@ type TransactionsProps = {
 type ContextProps = {
   connectWallet: any;
   currentAccount: string;
-  formData: FormData;
+  formData: FormDataProps;
+  setFormData: (value: FormDataProps) => void;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>, name: string) => void;
   sendTransaction: () => Promise<void>;
   transactions: TransactionsProps[];
@@ -57,15 +58,18 @@ const initialTransactions: TransactionsProps[] = [
   },
 ];
 
+export const initialFormData: FormDataProps = {
+  addressTo: "",
+  amount: "",
+  keyword: "",
+  message: "",
+};
+
 export const TransactionContext = createContext<ContextProps>({
   connectWallet: () => {},
   currentAccount: "",
-  formData: {
-    addressTo: "",
-    amount: "",
-    keyword: "",
-    message: "",
-  },
+  formData: initialFormData,
+  setFormData: () => {},
   handleChange: () => {},
   sendTransaction: () => Promise.resolve(),
   transactions: initialTransactions,
@@ -90,12 +94,7 @@ const getEthereumContract = async () => {
 
 export const TransactionProvider = ({ children }: any) => {
   const [currentAccount, setcurrentAccount] = useState("");
-  const [formData, setFormData] = useState({
-    addressTo: "",
-    amount: "",
-    keyword: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState<FormDataProps>(initialFormData);
   const [isLoading, setIsLoading] = useState(false);
   const [transactionCount, setTransactionCount] = useState(
     typeof window !== "undefined" && window.localStorage
@@ -256,6 +255,7 @@ export const TransactionProvider = ({ children }: any) => {
         connectWallet,
         currentAccount,
         formData,
+        setFormData,
         handleChange,
         sendTransaction,
         transactions,
