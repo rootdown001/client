@@ -53,7 +53,7 @@ export default function Initial() {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     const { addressTo, amount, keyword, message } = formData;
-    console.log(addressTo, amount, keyword, message);
+    // console.log(addressTo, amount, keyword, message);
     e.preventDefault();
     if (!addressTo || !amount || !keyword || !message) return;
     // console.log("fd before send ", formData);

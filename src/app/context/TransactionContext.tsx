@@ -132,7 +132,7 @@ export const TransactionProvider = ({ children }: any) => {
       // console.log(structuredTransactions);
       setTransactions(structuredTransactions);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -152,7 +152,7 @@ export const TransactionProvider = ({ children }: any) => {
 
       // console.log("🚀 ~ checkIfWalletIsConnected ~ accounts:", accounts);
     } catch (error) {
-      console.log("🚀 ~ checkIfWalletIsConnected ~ error:", error);
+      // console.log("🚀 ~ checkIfWalletIsConnected ~ error:", error);
       // console.log(" error in checkwallet");
       throw new Error("No ethereum object.");
     }
@@ -169,7 +169,7 @@ export const TransactionProvider = ({ children }: any) => {
         transactionCountBlockchain
       );
     } catch (error) {
-      console.log(" error in checktransactions");
+      // console.log(" error in checktransactions");
       throw new Error("No ethereum object.");
     }
   };
@@ -201,8 +201,8 @@ export const TransactionProvider = ({ children }: any) => {
       //  convert amount to GWEI hexidec
       const parsedAmount = ethers.utils.parseEther(amount);
 
-      console.log("🚀 ~ sendTransaction ~ parsedAmount:", parsedAmount);
-      console.log("amount: ", amount);
+      // console.log("🚀 ~ sendTransaction ~ parsedAmount:", parsedAmount);
+      // console.log("amount: ", amount);
       await ethereum.request({
         method: "eth_sendTransaction",
         params: [
@@ -215,7 +215,7 @@ export const TransactionProvider = ({ children }: any) => {
         ],
       });
 
-      console.log(transactionContract);
+      // console.log(transactionContract);
 
       const transactionHash = await transactionContract.addToBlockchain(
         addressTo,
@@ -225,10 +225,10 @@ export const TransactionProvider = ({ children }: any) => {
       );
 
       setIsLoading(true);
-      console.log(`Loading - ${transactionHash.hash}`);
+      // console.log(`Loading - ${transactionHash.hash}`);
       await transactionHash.wait();
       setIsLoading(false);
-      console.log(`Success - ${transactionHash.hash}`);
+      // console.log(`Success - ${transactionHash.hash}`);
 
       const transactionCountBlockchain =
         await transactionContract.getTransactionCount();
@@ -237,7 +237,7 @@ export const TransactionProvider = ({ children }: any) => {
       // window.location.reload();
       getAllTransactions();
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       throw new Error("No ethereum object.");
     }
   };
