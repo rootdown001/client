@@ -10,6 +10,10 @@ import { shortenAddress } from "../utils/shortenAddress";
 import Link from "next/link";
 import { initialFormData } from "../context/TransactionContext";
 
+// for new icons
+import { FaFaucet } from "react-icons/fa6";
+import { FaRocket } from "react-icons/fa6";
+
 type InputProps = {
   placeholder: string;
   name: string;
@@ -66,8 +70,8 @@ export default function Initial() {
 
   return (
     <div className=" flex w-full justify-center items-center">
-      <div className=" flex mf:flex-row flex-col items-start  justify-between md:p-20 py-12 px-4">
-        <div className=" flex flex-1 justify-start items-center flex-col mf:mr-10">
+      <div className=" flex mf:flex-row flex-col items-start  justify-between md:p-14 py-8 px-4">
+        <div className=" flex flex-1 justify-start items-center flex-col mf:mr-10 pt-12">
           {/* TODO: get text to be truely centered */}
           <h1 className="text-3xl sm:text-5xl  text-white px-1 py-1 text-center">
             Send Ethereum Instantly, Securely, and Without Hassle
@@ -77,97 +81,65 @@ export default function Initial() {
             state-of-the-art Ethereum dapp. Send ETH to anyone, anywhere,
             anytime.
           </p>
-          <div className="border-white rounded-lg border-[1px] w-full mt-14 flex flex-col justify-center items-center px-1 py-3">
-            <p className="text-white/[.9] py-2 font-semibold text-sm">
-              Deployment note
-            </p>
-            <p className="text-white/[.8] text-center text-sm">
-              I currently have this Web 3 app hooked up to the Ethereum
-              blockchain Testnet named Sepolia. This means it is{" "}
-              <span className=" font-extrabold text-white">free to use</span>.
-            </p>
-            <p className="text-white/[.8] text-center py-2 text-sm">
-              In order to play with it, just add Sepolia Ethereum to your
-              Metamask wallet with any of these free Sepolia faucets.
-            </p>
-            <ul className="text-center py-2 text-sm">
-              <li>
-                {" "}
-                <Link
-                  href="https://www.alchemy.com/faucets/ethereum-sepolia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {" "}
-                  <p className="rounded-full px-2 text-[#EE8267] hover:text-[#F19B85] m-1">
-                    Alchemy Ethereum Sepolia Faucet
-                  </p>
-                </Link>
-              </li>
-              <li>
-                {" "}
-                <Link
-                  href="https://www.infura.io/faucet/sepolia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {" "}
-                  <p className="rounded-full px-2 text-[#EE8267] hover:text-[#F19B85] m-1">
-                    Infura Ethereum Sepolia Faucet
-                  </p>
-                </Link>
-              </li>
-              <li>
-                {" "}
-                <Link
-                  href="https://cloud.google.com/application/web3/faucet/ethereum/sepolia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {" "}
-                  <p className="rounded-full px-2 text-[#EE8267] hover:text-[#F19B85] m-1">
-                    Google Cloud Web 3 Ethereum Sepolia Faucet
-                  </p>
-                </Link>
-              </li>
-            </ul>
-          </div>
-          {/* <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
-            <div className={`rounded-tl-2xl ${sixSectionStyles}`}>Safe</div>
-            <div className={`${sixSectionStyles}`}>Blockchain</div>
-            <div className={`sm:rounded-tr-2xl ${sixSectionStyles}`}>
-              Reliable
-            </div>
-            <div className={`sm:rounded-bl-2xl ${sixSectionStyles}`}>
-              Transparent
-            </div>
-            <div className={` ${sixSectionStyles}`}>Low Fees</div>
-            <div className={`rounded-br-2xl ${sixSectionStyles}`}>Fast</div>
-          </div> */}
-          {/* ethereum card
-          <div className=" p-3 justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 crypto-card glass-white ">
-            <div className=" flex justify-between flex-col w-full h-full">
-              <div className=" flex justify-between items-start">
-                <div className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center">
-                  <SiEthereum fontSize={21} color="fff" />
+          <div className=" mf:mt-28 mt-10 flex flex-col justify-start items-center w-[300px] mf:w-[60%] border-[1px] rounded-xl border-white/[.4]">
+            <div className=" flex flex-row w-full">
+              <div className="basis-1/6 flex justify-center items-start">
+                <div className="w-8 h-8 p-2 pt-4">
+                  <FaFaucet fontSize={18} color="#E6F4F1" />
                 </div>
-                <BsInfoCircle fontSize={17} color="fff" />
               </div>
-              <div>
-                <p className=" text-white font-light text-sm">
-                  {shortenAddress(currentAccount)}
+
+              <div className="basis-5/6 flex flex-col justify-start items-start">
+                <p className="text-white/[.8] flex w-full justify-start items-center pt-4 pb-2 px-2 text-sm">
+                  Faucets for free Sepolia ETH
                 </p>
-                <p className=" text-white font-semibold text-lg mt-1">
-                  Ethereum
-                </p>
+                <ul className="text-sm mb-2">
+                  <li>
+                    <Link
+                      href="https://www.alchemy.com/faucets/ethereum-sepolia"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <p className="rounded-full px-7 text-[#EE8267] hover:text-[#F19B85] ">
+                        Alchemy Faucet
+                      </p>
+                    </Link>
+                  </li>
+                  <li>
+                    {" "}
+                    <Link
+                      href="https://www.infura.io/faucet/sepolia"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {" "}
+                      <p className="rounded-full  px-7 text-[#EE8267] hover:text-[#F19B85]">
+                        Infura Faucet
+                      </p>
+                    </Link>
+                  </li>
+                  <li>
+                    {" "}
+                    <Link
+                      href="https://cloud.google.com/application/web3/faucet/ethereum/sepolia"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {" "}
+                      <p className="rounded-full pb-2 px-7 text-[#EE8267] hover:text-[#F19B85]">
+                        Google Cloud Faucet
+                      </p>
+                    </Link>
+                  </li>
+                </ul>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
         {/* second col */}
         <div className=" flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
           {/* transaction form */}
-          <div className=" p-5 pt-2 sm:w-96 flex flex-col justify-start items-center bg-[#1F545D] rounded-xl min-h-[600px] w-full">
+          <div className=" pl-5 pr-5 pb-1 pt-2 sm:w-96 flex flex-col justify-start items-center bg-[#1F545D] rounded-xl min-h-[600px] w-full">
             <div className="flex w-full">
               <div className="flex w-full justify-start items-center py-6 px-2">
                 <div className="w-10 h-10 rounded-full border-2 border-[#E6F4F1] flex justify-center items-center">
@@ -240,12 +212,25 @@ export default function Initial() {
                     onClick={handleSubmit}
                     // className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer"
                     //
-                    className=" flex flex-row justify-center items-center mt-10 bg-[#EE8267] rounded-full cursor-pointer hover:bg-[#F19B85] max-w-[300px] mx-auto px-[80px] py-3 text-white text-xl font-semibold"
+                    className=" flex flex-row justify-center items-center mt-6 bg-[#EE8267] rounded-full cursor-pointer hover:bg-[#F19B85] max-w-[300px] mx-auto px-[80px] py-3 text-white text-xl font-semibold"
                   >
                     Send Now
                   </button>
                 )}
               </form>
+            </div>
+            <div className="flex mt-6 w-[90%]">
+              <div className="basis-1/5 flex justify-end items-start">
+                <div className="w-8 h-8 flex justify-center items-center">
+                  <FaRocket fontSize={18} color="#E6F4F1" />
+                </div>
+              </div>
+
+              <div className="basis-4/5 flex justify-start items-center pl-2">
+                <p className="text-white/[.8] flex w-full justify-start items-center text-sm">
+                  Deployed to Ethereum Testnet{" "}
+                </p>
+              </div>
             </div>
           </div>
           {/* end 2nd column */}
