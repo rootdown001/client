@@ -74,7 +74,7 @@ export default function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
-    <nav className=" w-full flex md:justify-center justify-between items-center p-4 bg-white">
+    <nav className=" w-full flex md:justify-between justify-between items-center p-4 bg-white">
       <div className=" md:flex-[0.5] flex-initial justify-center items-center">
         <Image src={logo} alt="logo" className=" cursor-pointer w-32 " />
       </div>
@@ -90,7 +90,7 @@ export default function Navbar() {
           />
         ))}
         {!currentAccount && (
-          <li className="bg-[#EE8267] hover:bg-[#F19B85] py-1 px-7 mx-4 rounded-md cursor-pointer  text-white animate-bounce1">
+          <li className="bg-[#EE8267] hover:bg-[#F19B85] list-none py-1 px-2 md:px-7 mx-4 rounded-md cursor-pointer text-white animate-bounce1">
             <button type="button" onClick={connectWallet}>
               {/* TODO: button weight */}
               <p className=" text-white max-w-[120px]">Connect Wallet</p>
@@ -98,6 +98,7 @@ export default function Navbar() {
           </li>
         )}
       </ul>
+
       {/* mobile view */}
       <div className="flex relative">
         {toggleMenu ? (

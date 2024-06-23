@@ -137,7 +137,7 @@ export default function Initial() {
           </div>
         </div>
         {/* second col */}
-        <div className=" flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
+        <div className=" flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10 mf:mb-3 mb-3">
           {/* transaction form */}
           <div className=" pl-5 pr-5 pb-1 pt-2 sm:w-96 flex flex-col justify-start items-center bg-[#1F545D] rounded-xl min-h-[600px] w-full">
             <div className="flex w-full">
