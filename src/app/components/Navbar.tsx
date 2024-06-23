@@ -74,7 +74,7 @@ export default function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
-    <nav className=" w-full flex md:justify-between justify-between items-center p-4 bg-white">
+    <nav className=" w-full flex md:justify-between justify-between  items-center p-4 bg-white">
       <div className=" md:flex-[0.5] flex-initial justify-center items-center">
         <Image src={logo} alt="logo" className=" cursor-pointer w-32 " />
       </div>
